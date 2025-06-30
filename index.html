@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aftabganj Govt Degree College</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+    }
+
+    header {
+      background: #004080;
+      color: #fff;
+      padding: 10px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background: #0066cc;
+      border-radius: 5px;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 24px;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 50px 20px;
+    }
+
+    #home {
+      background: #e6f2ff;
+    }
+
+    #about, #contact, #address, #notice {
+      background: #f4f4f4;
+    }
+
+    footer {
+      background: #004080;
+      color: white;
+      text-align: center;
+      padding: 15px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+      }
+
+      .nav-links.active {
+        display: flex;
+        background: #003366;
+      }
+
+      .menu-toggle {
+        display: block;
+        color: white;
+      }
+
+      .nav-links a {
+        border-top: 1px solid #ffffff33;
+        padding: 15px;
+      }
+    }
+    
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <div class="logo">Aftabganj Govt Degree College</div>
+        <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+        <div class="nav-links" id="navLinks">
+          <a href="#home">Home</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+          <a href="#address">Address</a>
+          <a href="#notice">Notice</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section id="home">
+    <div class="container">
+      <h2>Welcome to Aftabganj Govt Degree College</h2>
+      <p>This is the official website of Aftabganj Govt Degree College. We provide quality education to our students and prepare them for the future.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container">
+      <h2>About Us</h2>
+      <p>Aftabganj Govt Degree College is committed to excellence in education. Established in 1978, we offer HSC, Honours, and other professional programs with a strong academic and ethical foundation.</p>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <p>Email: info@aftabganjcollege.edu.bd</p>
+      <p>Phone: +880-1234-567890</p>
+      <p>Facebook: <a href="#">fb.com/aftabganjcollege</a></p>
+    </div>
+  </section>
+
+  <section id="address">
+    <div class="container">
+      <h2>Address</h2>
+      <p>Aftabganj Govt Degree College, Aftabganj, Nawabganj, Dinajpur, Bangladesh.</p>
+    </div>
+  </section>
+
+  <section id="notice">
+    <div class="container">
+      <h2>Notice Board</h2>
+      <ul>
+        <li>📢 Admission for session 2025 is open now.</li>
+        <li>🗓️ Final exams will start from 15 July 2025.</li>
+        <li>📄 Download your admit card from the contact section.</li>
+        <li><a href="result.html">For get your result click here.</a></li>
+        <li><a href="pdf1.html">For Admission Form Click Here.</a>.</li>
+         <li><a href="Notice1.html">Notice 30-05-2025</a>.</li>
+      </ul>
+    </div>
+  </section>
+
+  
+
+  <footer>
+    <p>&copy; 2025 Aftabganj Govt Degree College. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("active");
+    }
+    //alert('📢 Admission for session 2025 is open now.');
+  </script>
+
+</body>
+</html>

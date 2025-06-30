@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Aftabganj Govt Degree Govt College</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 50px auto;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    label {
+      font-weight: bold;
+      display: block;
+      margin-top: 15px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    button {
+      margin-top: 20px;
+      width: 100%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .result {
+      margin-top: 30px;
+      padding: 20px;
+      border-radius: 8px;
+      background-color: #e6ffe6;
+      border: 1px solid #28a745;
+    }
+
+    .result p {
+      margin: 8px 0;
+    }
+
+    .error {
+      color: red;
+      margin-top: 15px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Aftabganj Govt Degree College</h2>
+    <label for="studentId">Enter Student's Roll:</label>
+    <input type="text" id="studentId" placeholder="Enter Your Roll" />
+    <button onclick="findStudent()">Submit</button>
+
+    <div id="result" class="result" style="display: none;"></div>
+    <div id="error" class="error"></div>
+  </div>
+
+  <script>
+    const students = {
+      "01": {
+        name: "Rahim Uddin",
+        department: "Science",
+        mobile: "01710000001",
+        studentId: "01",
+        cgpa: "5.00",
+        father: "Karim Uddin",
+        mother: "Fatema Begum",
+        dob: "2000-05-12",
+        session: "2018-19",
+        bangla:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        English:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Physics1:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Physics2:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Chemistry1:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Chemestry2:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        HigherMath:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        ICT:'CQ-55 MCQ-25 Total:80 Grade:A+',
+      },
+      "02": {
+        name: "Salma Khatun",
+        department: "Science",
+        mobile: "01710000002",
+        studentId: "02",
+        cgpa: "4.67",
+        father: "Sultan Ahmed",
+        mother: "Rabeya Khatun",
+        dob: "1999-11-23",
+        session: "2017-18",
+        bangla:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        English:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Physics1:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Physics2:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Chemistry1:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Chemestry2:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        HigherMath:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        ICT:'CQ-55 MCQ-25 Total:80 Grade:A+',
+
+      },
+      "03": {
+        name: "Salman Khan",
+        department: "Science",
+        mobile: "01710000002",
+        studentId: "03",
+        cgpa: "5.00",
+        father: "Sultan Ahmed",
+        mother: "Rabeya Khatun",
+        dob: "1999-11-23",
+        session: "2017-18",
+        bangla:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        English:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Physics1:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Physics2:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Chemistry1:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Chemestry2:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        HigherMath:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        ICT:'CQ-55 MCQ-25 Total:80 Grade:A+',
+
+      },
+      "04": {
+        name: "S.M.Naziur Rahman",
+        department: "Science",
+        mobile: "01722079024",
+        studentId: "04",
+        cgpa: "4.73",
+        father: "MD.Amzad Hossain Sarker",
+        mother: "MST.Nusrat Jakia",
+        dob: "09-02-2001",
+        session: "2017-18",
+        bangla:'CQ-40 MCQ-20 Total:60 Grade:A-',
+        English:'CQ-55 MCQ-20 Total:75 Grade:A',
+        Physics1:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Physics2:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Chemistry1:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        Chemestry2:'CQ-55 MCQ-25 Total:80 Grade:A+',
+        HigherMath:'CQ-50 MCQ-25 Total:75 Grade:A',
+        ICT:'CQ-55 MCQ-15 Total:70 Grade:A',
+
+      }
+    };
+
+    function findStudent() {
+      const id = document.getElementById("studentId").value.trim();
+      const resultDiv = document.getElementById("result");
+      const errorDiv = document.getElementById("error");
+      
+      resultDiv.style.display = "none";
+      resultDiv.innerHTML = "";
+      errorDiv.textContent = "";
+
+      if (!id) {
+        errorDiv.textContent = "Please enter a Student ID.";
+        return;
+      }
+
+      const student = students[id];
+
+      if (student) {
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = `
+          <center><h1>Details:</h1></center>
+          <p><strong>Name:</strong> ${student.name}</p>
+          <p><strong>Department:</strong> ${student.department}</p>
+          <p><strong>Mobile No:</strong> ${student.mobile}</p>
+          <p><strong>Student ID:</strong> ${student.studentId}</p>
+          <p><strong>CGPA:</strong> ${student.cgpa}</p>
+          <p><strong>Father's Name:</strong> ${student.father}</p>
+          <p><strong>Mother's Name:</strong> ${student.mother}</p>
+          <p><strong>Date of Birth:</strong> ${student.dob}</p>
+          <p><strong>Session:</strong> ${student.session}</p>
+          <center><h1>Your Marks</h1></center>
+          <p><strong>Bangla:</strong> ${student.bangla}</p>
+          <p><strong>English:</strong> ${student.English}</p>
+          <p><strong>Physics1:</strong> ${student.Physics1}</p>
+          <p><strong>Physics2:</strong> ${student.Physics2}</p>
+          <p><strong>Chemestry1:</strong> ${student.Chemistry1}</p>
+          <p><strong>Chemestry2:</strong> ${student.Chemestry2}</p>
+          <p><strong>HigherMath:</strong> ${student.HigherMath}</p>
+          <p><strong>ICT:</strong> ${student.ICT}</p>
+        `;
+      } else {
+        errorDiv.textContent = `No student found with ID "${id}".`;
+      }
+    }
+  </script>
+</body>
+</html>
